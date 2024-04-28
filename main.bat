@@ -5,13 +5,12 @@ chcp 65001
 cls
 title Loading...
 echo Loading...
-REM -7516440957484561490 cool seed mc
 REM ─│┌┐└┘├┤ MENU CHARS
 goto 1
 
 :1
 timeout 3 >nul
-title EAGLE
+title Eagle Menu v1.0
 color a
 cls
 echo.
@@ -35,12 +34,13 @@ if /i %main%==2 goto CHOICE2
 if /i %main%==3 goto CHOICE3
 if /i %main%==4 goto CHOICE4
 if /i %main%==5 goto CHOICE5
-if /i not %1%==1,2,3,4,5 goto 1
+if /i %main%==cmdline goto cmdline
+if /i not %1%==1,2,3,4,5,chcp,cmdline goto 1
 goto 1
 
 :CHOICE1
 cls
-title ROBLOX - EAGLE
+title Roblox - Eagle Menu v1.0
 echo.
 echo  ┌────────────────┐
 echo  │     ROBLOX     │
@@ -80,7 +80,7 @@ goto 1
 
 :RBX1
 cls
-title ROBLOX SCRIPTS - EAGLE
+title Roblox scripts - Eagle Menu v1.0
 echo.
 echo  ┌─────────────────────────────────┐
 echo  │         ROBLOX SCRIPTS          │
@@ -122,7 +122,7 @@ goto 1
 
 :RBX2
 cls
-title ROBLOX MUSIC IDs - EAGLE
+title Roblox music IDs - Eagle Menu v1.0
 echo.
 echo  ┌────────────────────┐
 echo  │       MUSIC        │
@@ -162,14 +162,36 @@ goto 1
 )
 
 :CHOICE2
+title Minecraft BE Seeds - Eagle Menu v1.0
 cls
 echo.
-echo MINECRAFT WIP
+echo  ┌────────────────────────────────┐
+echo  │    MINECRAFT BEDROCK SEEDS     │
+echo  ├────────────────────────────────┤
+echo  │1. -3444009025687665820         │
+echo  │2. -3173136518338547511         │
+echo  │3.  2992923606550773650         │
+echo  │4. 380952304365995615           │
+echo  │5. 9038503237480950373          │
+echo  └────────────────────────────────┘
 echo.
-pause
+echo Type "leave" to exit CHOICE2
+echo.
+set /p N2=
+if /i %N2%==leave (
+cls
+echo.
+echo  ┌────────────────┐
+echo  │  RETURNING...  │
+echo  └────────────────┘
+echo.
+timeout 5 >nul
+cls
 goto 1
+)
 
 :CHOICE3
+title Website - Eagle Menu v1.0
 cls
 echo.
 echo  ┌────────────────────────────────┐
@@ -196,7 +218,7 @@ goto 1
 )
 
 :CHOICE4
-title GITHUB - EAGLE
+title Github - Eagle Menu v1.0
 cls
 echo.
 echo  ┌────────────────────────────────┐
@@ -223,7 +245,7 @@ goto 1
 )
 
 :CHOICE5
-title EXITING - EAGLE
+title Exit - Eagle Menu v1.0
 cls
 echo.
 echo  ┌────────────────┐
@@ -232,3 +254,34 @@ echo  └────────────────┘
 echo.
 timeout 5 >nul
 exit
+
+:cmdline
+title Command Line - Eagle Menu v1.0
+cls
+echo.
+echo  ┌────────────────┐
+echo  │  COMMAND LINE  │
+echo  └────────────────┘
+echo.
+echo Type "leave" to exit COMMAND LINE
+goto cmdline2
+
+:cmdline2
+echo.
+set /p cmdline=%username% --► 
+if /i %cmdline%==leave (
+cls
+echo.
+echo  ┌────────────────┐
+echo  │  RETURNING...  │
+echo  └────────────────┘
+echo.
+timeout 5 >nul
+cls
+goto 1
+)
+else (
+%cmdline%
+goto cmdline2
+)
+)
