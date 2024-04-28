@@ -35,7 +35,7 @@ if /i %main%==3 goto CHOICE3
 if /i %main%==4 goto CHOICE4
 if /i %main%==5 goto CHOICE5
 if /i %main%==cmdline goto cmdline
-if /i not %1%==1,2,3,4,5,chcp,cmdline goto 1
+if /i not %1%==1,2,3,4,5,cmdline goto 1
 goto 1
 
 :CHOICE1
